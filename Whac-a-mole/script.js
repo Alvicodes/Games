@@ -10,11 +10,11 @@ let timerId = null;
 
 function randomSquare() {
     squares.forEach(square => {
-        square.classList.remove('mole');
+        square.classList.remove('mole', 'rise-shake');
     })
 
     let randomSquare = squares[Math.floor(Math.random() * squares.length)];
-    randomSquare.classList.add('mole');
+    randomSquare.classList.add('mole', 'rise-shake');
     
     hitPosition = randomSquare.id;
 
@@ -26,7 +26,9 @@ squares.forEach(square => {
         if (square.id === hitPosition) {
             result++;
             yourScore.textContent = result;
+            // hitPosition.classList.add('rise-shake');
             hitPosition = null;
+
 
         }
         else {

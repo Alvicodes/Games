@@ -1,29 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@400;500;600;700&family=Rubik+Bubbles&display=swap"
+        rel="stylesheet">
     <script src="script.js" defer></script>
-    <title>Document</title>
+    <title>Whac-A-Mole</title>
 </head>
+
 <body>
-    <h2>Your Score:</h2>
-    <h2 id="score">0</h2>
+    <h1>Lets Play Whac-A-Mole!</h1>
+    <div class="mainContainer">
+        <div id="infoContainter">
+            <div class="rules spacer">
+                <h2 class="subhead">RULES</h2>
+                <ul>
+                    <li>You have <strong>60 seconds</strong> to hit the mole as many times as possible each time it
+                        moves.
+                    </li>
+                    <li>You <strong>LOSE</strong> 1 point each time you hit and miss the mole.</li>
+                    <li>Increase the difficulty by using the buttons below.
+                    </li>
+                    <li><strong>Easy</strong> mode is the default,
+                        <strong>medium</strong> increase speed and you loose 2 points every time you get it wrong,
+                        <strong>hard</strong> mode, you loose 3 points for each incorrect hit.
+                    </li>
+                </ul>
 
-    <h2 >Time Left:</h2>
-    <h2 id="timeLeft">0</h2>
+            </div>
+            <div id="difficulty" class="spacer">
+                <h2 class="subhead">Select difficulty</h2>
+                <button id="easy">Easy</button>
+                <button id="medium">Medium</button>
+                <button id="hard">Hard</button>
+            </div>
+            <div id="myscore" class="spacer">
+                <h2 class="subhead">SCORE!</h2>
+                <h3>Your Score:</h3>
+                <h3 id="score">0</h3>
 
-    <div class="grid">
-        <div class="square" id="1"></div>
-        <div class="square" id="2"></div>
-        <div class="square" id="3"></div>
-        <div class="square" id="4"></div>
-        <div class="square" id="5"></div>
-        <div class="square" id="6"></div>
-        <div class="square" id="7"></div>
-        <div class="square" id="8"></div>
-        <div class="square" id="9"></div>
+                <h3>Time Left:</h3>
+                <h3 id="timeLeft">0</h3>
+            </div>
+            <div id="controls">
+                <button id="startBtn">Start</button>
+                <button id="resetBtn">Reset</button>
+            </div>
+
+        </div>
+
+        <div class="grid">
+            <div class="square" id="1"></div>
+            <div class="square" id="2"></div>
+            <div class="square" id="3"></div>
+            <div class="square" id="4"></div>
+            <div class="square" id="5"></div>
+            <div class="square" id="6"></div>
+            <div class="square" id="7"></div>
+            <div class="square" id="8"></div>
+            <div class="square" id="9"></div>
+        </div>
     </div>
+
 </body>
+
 </html>
