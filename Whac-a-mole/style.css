@@ -53,13 +53,45 @@ h1 {
     margin: 2rem 1rem 2rem 2rem;
     max-width: 35%;
     background-color: aqua;
-    /* display: flex;
-    justify-content: center; */
 }
 
 .spacer {
     margin: 1rem 0;
     border: 1px solid;
+}
+
+/* #myScore h3 {
+    display: inline;
+    margin: 0.5rem; */
+    /* text-align: center; */
+/* } */
+
+.contain {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#controls {
+    border: 1px solid;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#controls button,
+#difficulty button {
+    width: 30%;
+    margin: 0 0.25rem;
+    border-radius: 10px;
+    font-family: Caveat;
+    font-size: 1rem;
+    font-weight: bolder;
+    border: 1px solid;
+}
+
+#controls button:hover,
+#difficulty button:hover {
+    background-color: rgb(249, 173, 173);
 }
 
 .grid {
@@ -84,8 +116,8 @@ h1 {
 
 }
 
-.rise-shake {
-    animation: jump-shaking 0.5s infinite;
+.rise-shake:active {
+    animation: jump-shaking 0.1s infinite;
 }
 
 @keyframes jump-shaking {
@@ -116,16 +148,4 @@ h1 {
     100% {
         transform: translateY(0) rotate(0)
     }
-}
-
-#controls {
-    border: 1px solid;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-#controls button,#difficulty button {
-    width: 70px;
-    margin:0 0.25rem;
-    border-radius: 10px;
 }
