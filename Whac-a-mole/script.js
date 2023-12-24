@@ -8,6 +8,7 @@ let hitPosition;
 let currentTime = 60;
 let timerId;
 let countDownTimerId;
+let gameStarted = false;
 function randomSquare() {
     squares.forEach(square => {
         square.classList.remove('mole', 'rise-shake');
@@ -22,7 +23,7 @@ function randomSquare() {
 
 squares.forEach(square => {
     square.addEventListener('mousedown', () => {
-        if (square.id === hitPosition) {
+        if (gameStarted && square.id === hitPosition) {
             result++;
             yourScore.textContent = result;
             hitPosition = null;
@@ -43,18 +44,17 @@ const startBtn = document.getElementById('startBtn');
 const resetBtn = document.getElementById('resetBtn');
 
 
-
-
-
 function moveMole() {
-    
-    let interval = 1000; //Default interval (easy) setting
+    clearInterval(countDownTimerId);
+    clearInterval(timerId);
+    currentTime = 60;
+    timeLeft.textContent = currentTime;
 
     levelEasy.addEventListener('click', () => {
         interval = 1000;
     });
     levelMedium.addEventListener('click', () => {
-        interval = 750;
+        interval = 700;
     });
     levelHard.addEventListener('click', () => {
         interval = 500;
@@ -90,7 +90,7 @@ function countDown() {
     if (currentTime === 0) {
         clearInterval(countDownTimerId);
         clearInterval(timerId);
-        alert('Game Over! Your score is' + result);
+        alert('Game Over! Your score is ' + result);
     }
 
 }
