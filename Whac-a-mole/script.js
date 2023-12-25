@@ -1,9 +1,11 @@
 const squares = document.querySelectorAll('.square');
-const mole = document.querySelector('.mole');
 const timeLeft = document.querySelector('#timeLeft');
 const yourScore = document.querySelector('#score');
+const startBtn = document.getElementById('startBtn');
+const resetBtn = document.getElementById('resetBtn');
+const difficultyButtons = document.querySelectorAll('#difficulty button');
 
-let result = 0
+let result = 0;
 let hitPosition;
 let currentTime = 60;
 let timerId;
@@ -20,7 +22,6 @@ function randomSquare() {
 
 }
 
-
 squares.forEach(square => {
     square.addEventListener('mousedown', () => {
         if (gameStarted && square.id === hitPosition) {
@@ -33,68 +34,64 @@ squares.forEach(square => {
             yourScore.textContent = result;
             hitPosition = null;
         }
+    });
+});
 
-    })
-})
+difficultyButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        //Remove active classs from all buttons
+        difficultyButtons.forEach(btn => btn.classList.remove('active'));
+        //Add active classs to the clicked button
+        button.classList.add('active');
+    });
+});
 
-const levelEasy = document.getElementById('easy');
-const levelMedium = document.getElementById('medium');
-const levelHard = document.getElementById('hard');
-const startBtn = document.getElementById('startBtn');
-const resetBtn = document.getElementById('resetBtn');
+startBtn.addEventListener('click', () => {
+    const selectedDifficulty = document.querySelector('#difficulty button.active');
+    if (!selectedDifficulty) {
+        alert('Please select a difficulty level before starting the game.');
+        return;
+    }
+    const interval = parseInt(selectedDifficulty.dataset.interval, 10);
+    startGame(interval);
+   
+});
+
+resetBtn.addEventListener('click', resetGame);
+
+function startGame(interval) {
+    if (gameStarted) {
+        return;
+    }
+
+    gameStarted = true;
+    countDownTimerId = setInterval(countDown, 1000);
+    timerId = setInterval(randomSquare, interval);
+}
 
 
-function moveMole() {
+function resetGame() {
+    gameStarted = false;
+    difficultyButtons.forEach(btn => btn.classList.remove('active'));
     clearInterval(countDownTimerId);
     clearInterval(timerId);
+    result = 0;
     currentTime = 60;
+    yourScore.textContent = result;
     timeLeft.textContent = currentTime;
-
-    levelEasy.addEventListener('click', () => {
-        interval = 1000;
-    });
-    levelMedium.addEventListener('click', () => {
-        interval = 700;
-    });
-    levelHard.addEventListener('click', () => {
-        interval = 500;
-    });
-
-    timerId = setInterval(randomSquare, interval);
-    
-    startBtn.addEventListener('click', startGame);
-    resetBtn.addEventListener('click', resetGame);
-
-    function startGame() {
-        countDownTimerId = setInterval(countDown, 1000);
-        result = 0;
-        yourScore.textContent = result;
-
-    }
-    function resetGame() {
-        clearInterval(countDownTimerId);
-        // clearInterval(timerId);
-        result = 0;
-        currentTime = 60;
-        yourScore.textContent = result;
-        timeLeft.textContent = currentTime;
-    }
 }
-moveMole();
-
 
 function countDown() {
     currentTime--;
     timeLeft.textContent = currentTime;
 
     if (currentTime === 0) {
+        gameStarted = false;
         clearInterval(countDownTimerId);
         clearInterval(timerId);
-        alert('Game Over! Your score is ' + result);
+        alert('Game Over! Your score is ' + result + "" + 'Reset the game to play again!');
     }
 
 }
 
-
-// randomSquare();
 
