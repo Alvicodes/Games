@@ -149,6 +149,8 @@ function lose() {
         clearInterval(outcomeTimerId);
         squares[currentIndex].classList.remove('frog');
         document.removeEventListener('keyup', moveFrog);
+        startPauseButton.textContent = 'Start';
+
     }
 }
 
@@ -162,7 +164,6 @@ function win() {
     }
 
 }
-// timerId = setInterval(autoMoveElements, 400);
 
 startPauseButton.addEventListener('click', () => {
     if (timerId) {
@@ -171,11 +172,14 @@ startPauseButton.addEventListener('click', () => {
         outcomeTimerId = null;
         timerId = null;
         document.removeEventListener('keyup', moveFrog);
+        startPauseButton.textContent = 'Start';
+
     }
     else {
         timerId = setInterval(autoMoveElements, 400);
         outcomeTimerId = setInterval(checkOutcomes, 50);
         document.addEventListener('keyup', moveFrog);
+        startPauseButton.textContent = 'Pause';
     }
 
 })
