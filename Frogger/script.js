@@ -7,6 +7,7 @@ const logsLeft = document.querySelectorAll('.log-left');
 const logsRight = document.querySelectorAll('.log-right');
 const carLeft = document.querySelectorAll('.car-left')
 const carsRight = document.querySelectorAll('.car-right');
+const tglCheckbox = document.getElementById("toggle");
 
 console.log(squares);
 let currentIndex = 76;
@@ -14,6 +15,7 @@ let timerId;
 const width = 9;
 let currentTime = 20;
 let outcomeTimerId;
+let countDownTimerId;
 
 let interval = 1000;
 
@@ -39,13 +41,11 @@ function moveFrog(e) {
 document.addEventListener('keyup', moveFrog);
 
 function autoMoveElements() {
-    currentTime--;
-    timeLeftDisplay.textContent = currentTime;
     logsLeft.forEach(logLeft => moveLogLeft(logLeft));
     logsRight.forEach(logRight => moveLogRight(logRight));
     carLeft.forEach(carLeft => moveCarLeft(carLeft));
     carsRight.forEach(carRight => moveCarRight(carRight));
-   checkOutcomes()
+    checkOutcomes()
 }
 function checkOutcomes() {
     lose();
@@ -148,6 +148,7 @@ function lose() {
         resultDisplay.textContent = 'You lost!';
         clearInterval(timerId);
         clearInterval(outcomeTimerId);
+        clearInterval(countDownTimerId);
         squares[currentIndex].classList.remove('frog');
         document.removeEventListener('keyup', moveFrog);
         startPauseButton.textContent = 'Start';
@@ -159,23 +160,31 @@ function win() {
         resultDisplay.textContent = 'You won!';
         clearInterval(timerId);
         clearInterval(outcomeTimerId);
+        clearInterval(countDownTimerId);
         squares[currentIndex].classList.add('shake');
         document.removeEventListener('keyup', moveFrog);
-        
+
     }
+}
+function countdownTimer() {
+    currentTime--;
+    timeLeftDisplay.textContent = currentTime;
 }
 
 startPauseButton.addEventListener('click', () => {
     if (timerId) {
         clearInterval(timerId);
         clearInterval(outcomeTimerId);
+        clearInterval(countDownTimerId)
         outcomeTimerId = null;
         timerId = null;
+        countDownTimerId = null;
         document.removeEventListener('keyup', moveFrog);
         startPauseButton.textContent = 'Start';
 
     }
     else {
+        countDownTimerId = setInterval(countdownTimer, 1000);
         timerId = setInterval(autoMoveElements, interval);
         outcomeTimerId = setInterval(checkOutcomes, 50);
         document.addEventListener('keyup', moveFrog);
@@ -186,6 +195,7 @@ startPauseButton.addEventListener('click', () => {
 function reset() {
     clearInterval(timerId);
     clearInterval(outcomeTimerId);
+    clearInterval(countDownTimerId);
     outcomeTimerId = null;
     timerId = null;
     document.removeEventListener('keyup', moveFrog);
@@ -200,26 +210,28 @@ function reset() {
 
 }
 resetBtn.addEventListener('click', () => {
- reset();
+    reset();
 }
 )
 
-const tglCheckbox = document.getElementById("toggle");
-
+//Toggle difficulty checkbox
 tglCheckbox.addEventListener('change', () => {
     if (tglCheckbox.checked) {
-       squares.forEach(square => {
-               square.classList.add('circularPath');
-               interval = 400;
+        squares.forEach(square => {
+            square.classList.add('circularPath');
+            interval = 400;
+            reset();
 
-       })
+        })
     }
     else {
         squares.forEach(square => {
-            square.classList.remove('circularPath'); 
+            square.classList.remove('circularPath');
             clearInterval(interval);
             interval = 1000;
-    })    }
+            reset();
+        })
+    }
 })
 
 
