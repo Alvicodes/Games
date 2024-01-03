@@ -8,6 +8,13 @@ const logsRight = document.querySelectorAll('.log-right');
 const carLeft = document.querySelectorAll('.car-left')
 const carsRight = document.querySelectorAll('.car-right');
 const tglCheckbox = document.getElementById("toggle");
+const screenModeImg = document.querySelector('#moonImage');
+const screenModeText = document.querySelector('#lightModeText');
+const body = document.querySelector('body');
+
+screenModeImg.addEventListener('click', () => {
+  body.classList.toggle('darkmode');
+})
 
 console.log(squares);
 let currentIndex = 76;
