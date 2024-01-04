@@ -5,9 +5,10 @@ const startBtn = document.getElementById('startBtn');
 const resetBtn = document.getElementById('resetBtn');
 const difficultyButtons = document.querySelectorAll('#difficulty button');
 
+
 let result = 0;
 let hitPosition;
-let currentTime = 60;
+let currentTime = 1;
 let timerId;
 let countDownTimerId;
 let gameStarted = false;
@@ -54,7 +55,7 @@ startBtn.addEventListener('click', () => {
     }
     const interval = parseInt(selectedDifficulty.dataset.interval, 10);
     startGame(interval);
-   
+
 });
 
 resetBtn.addEventListener('click', resetGame);
@@ -73,6 +74,7 @@ function startGame(interval) {
 function resetGame() {
     gameStarted = false;
     difficultyButtons.forEach(btn => btn.classList.remove('active'));
+    squares.forEach(square => square.classList.remove('lose'));
     clearInterval(countDownTimerId);
     clearInterval(timerId);
     result = 0;
@@ -89,6 +91,7 @@ function countDown() {
         gameStarted = false;
         clearInterval(countDownTimerId);
         clearInterval(timerId);
+        squares.forEach(square => square.classList.add('lose'));
         alert('Game Over! Your score is ' + result + "" + 'Reset the game to play again!');
     }
 
