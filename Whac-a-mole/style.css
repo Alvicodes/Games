@@ -8,7 +8,7 @@
 :root {
     --clr-darkorange: #E65738;
     --clr-paleorange: #FEE4D6;
-    --clr-lightblue:  #EBEFF2;
+    --clr-lightblue: #EBEFF2;
     --clr-lightbluealt: #839FB4;
     --clr-paleblue: #5A7E99;
     --clr-midblue: #34536A;
@@ -82,6 +82,7 @@ h1 {
     border: 1px solid var(--clr-paleblue);
     box-shadow: 1px 2px 4px var(--clr-midblue);
 }
+
 .rules {
     background-color: var(--clr-lightblue);
     border-radius: 30px;
@@ -124,16 +125,19 @@ ul {
     border: 0;
 }
 
-#difficulty, #myScore{
+#difficulty,
+#myScore {
     background-color: var(--clr-midblue);
     border-radius: 15px;
     padding: 0.25rem;
 }
+
 #difficulty {
     display: flex;
     justify-content: space-between;
 }
-#difficulty button{
+
+#difficulty button {
     margin: 0.25rem;
     box-shadow: 1px 1px 2px var(--clr-paleblue);
 }
@@ -155,7 +159,7 @@ ul {
     background-color: var(--clr-white);
 }
 
-.lose{
+.lose {
     background-color: var(--clr-darkorange);
 }
 
@@ -197,5 +201,128 @@ ul {
 
     100% {
         transform: translateY(0) rotate(0)
+    }
+}
+
+/* media queries */
+/* 
+@media all and (min-width: 768px) and (max-width: 1024px) { 
+
+}
+@media all and (min-width: 480px) and (max-width: 768px) {
+
+ }
+@media all and (max-width: 480px) { 
+
+} */
+
+/* media queries min-width 320px, */
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+    .mainContainer {
+        /* flex-direction: column; */
+
+    }
+
+    #infoContainter {
+        max-width: 35%;
+        margin: 2rem 0;
+    }
+
+    .grid {
+        width: 50%;
+        margin: 1rem auto;
+        border: 1px solid #E65738;
+    }
+
+    .square {
+        width: 30%;
+        height: 30vw;
+    }
+
+    #controls button,
+    #difficulty button {
+        width: 45%;
+        margin: 1rem 0.25rem;
+    }
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+    .mainContainer {
+        flex-direction: column;
+    }
+
+    #infoContainter {
+        max-width: 90%;
+        margin: 2rem auto;
+    }
+
+    .grid {
+        width: 80%;
+        margin: 2rem auto;
+    }
+
+    .square {
+        width: 45%;
+        height: 45vw;
+    }
+
+    #controls button,
+    #difficulty button {
+        width: 45%;
+        margin: 1rem 0.25rem;
+    }
+}
+
+@media all and (min-width: 320px) and (max-width: 480px) {
+    .mainContainer {
+        flex-direction: column;
+        width: 80%;
+    }
+
+    #infoContainter {
+        max-width: 90%;
+        margin: 2rem auto;
+    }
+
+    .subhead {
+        margin: 0 0;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .spacer {
+        margin-bottom: 0.25rem;
+
+    }
+
+    .rules {
+        font-size: 15px;
+        margin-bottom: 0;
+    }
+  ul {
+        padding-left: 1.75rem;
+    }
+  
+#difficulty {
+    padding: 0.156rem;
+    margin: 0; 
+}
+    .grid {
+        width: 80%;
+        margin: 2rem auto;
+    }
+
+    .square {
+        width: 80%;
+        height: 80vw;
+    }
+
+    #controls button,
+    #difficulty button {
+        width: 80%;
+        margin: 0.25rem 0.25rem;
     }
 }
