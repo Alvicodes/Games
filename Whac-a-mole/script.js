@@ -8,7 +8,7 @@ const difficultyButtons = document.querySelectorAll('#difficulty button');
 
 let result = 0;
 let hitPosition;
-let currentTime = 1;
+let currentTime = 60;
 let timerId;
 let countDownTimerId;
 let gameStarted = false;
@@ -55,6 +55,12 @@ startBtn.addEventListener('click', () => {
     }
     const interval = parseInt(selectedDifficulty.dataset.interval, 10);
     startGame(interval);
+    // Scroll to the grid container
+    const gridContainer = document.querySelector('.grid');
+    gridContainer.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+    });
 
 });
 

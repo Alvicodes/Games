@@ -61,7 +61,6 @@ h1 {
 .mainContainer {
     width: 90%;
     max-width: 1100px;
-    border: 1px solid green;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -219,25 +218,24 @@ ul {
 /* media queries min-width 320px, */
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
-    .mainContainer {
-        /* flex-direction: column; */
+    /* .mainContainer {
+        flex-direction: row;
 
-    }
+    } */
 
     #infoContainter {
-        max-width: 35%;
+        max-width: 45%;
         margin: 2rem 0;
     }
 
     .grid {
-        width: 50%;
-        margin: 1rem auto;
-        border: 1px solid #E65738;
+        width: 55%;
+        margin: 1rem 1rem 1rem 1rem;
     }
 
     .square {
-        width: 30%;
-        height: 30vw;
+        width: 33%;
+        height: 33%;
     }
 
     #controls button,
@@ -248,23 +246,23 @@ ul {
 }
 
 @media all and (min-width: 480px) and (max-width: 768px) {
-    .mainContainer {
-        flex-direction: column;
+     .mainContainer {
+        flex-direction: column; 
     }
 
     #infoContainter {
-        max-width: 90%;
-        margin: 2rem auto;
+        max-width: 60%;
+        margin: 2rem 1rem 2rem 0.5rem;
     }
 
     .grid {
-        width: 80%;
+        width: 100%;
         margin: 2rem auto;
     }
 
     .square {
-        width: 45%;
-        height: 45vw;
+        width: 33%;
+        height: 33%;
     }
 
     #controls button,
@@ -275,9 +273,12 @@ ul {
 }
 
 @media all and (min-width: 320px) and (max-width: 480px) {
+    h1 {
+        margin-top: 2rem;
+    }
     .mainContainer {
         flex-direction: column;
-        width: 80%;
+        width: 90%;
     }
 
     #infoContainter {
@@ -286,43 +287,54 @@ ul {
     }
 
     .subhead {
-        margin: 0 0;
+        margin: 0.25rem 0;
     }
 
     h2 {
         font-size: 20px;
     }
 
-    .spacer {
-        margin-bottom: 0.25rem;
-
-    }
-
     .rules {
         font-size: 15px;
         margin-bottom: 0;
     }
-  ul {
+
+    ul {
         padding-left: 1.75rem;
     }
-  
-#difficulty {
-    padding: 0.156rem;
-    margin: 0; 
-}
+
+    #difficulty {
+        padding: 0.156rem;
+        margin: 0;
+    }
+
+    .spacer {
+        margin-bottom: 0.25rem;
+        margin-top: 0;
+    }
+
+    /* #myscore {
+        margin: 0;
+    } */
+
     .grid {
-        width: 80%;
-        margin: 2rem auto;
+        width: 101%;
+        height: 0%;
+        margin: 10rem auto;
     }
 
     .square {
-        width: 80%;
-        height: 80vw;
+        width: 33%;
+        height: 30vw;
+        /* height: 30vw; */
     }
 
     #controls button,
     #difficulty button {
         width: 80%;
         margin: 0.25rem 0.25rem;
+    }
+    #controls {
+        margin-top: 0.75rem;
     }
 }
