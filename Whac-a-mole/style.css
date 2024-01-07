@@ -124,6 +124,11 @@ ul {
     color: var(--clr-fwhite);
     border: 0;
 }
+#difficulty button:visited {
+    background-color: var(--clr-darkorange);
+    color: var(--clr-fwhite);
+    border: 0;
+}
 
 #difficulty,
 #myScore {
@@ -166,8 +171,8 @@ ul {
 
 .mole {
     background-image: url(images/mole-icon.jpg);
-    background-size: cover;
-
+    background-size:contain;
+    background-repeat: no-repeat;
 }
 
 .rise-shake:active {
@@ -247,6 +252,7 @@ ul {
     #controls button {
         width: 45%;
         margin: 1rem 0.25rem;
+        
     }
 }
 
