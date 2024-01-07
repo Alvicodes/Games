@@ -50,6 +50,7 @@ body {
 h1 {
     text-align: center;
     color: var(--clr-darkorange);
+    margin-top: 1rem;
 }
 
 .subhead {
@@ -238,16 +239,20 @@ ul {
         height: 33%;
     }
 
-    #controls button,
     #difficulty button {
+        width: 45%;
+        margin: 0 0.25rem;
+    }
+
+    #controls button {
         width: 45%;
         margin: 1rem 0.25rem;
     }
 }
 
 @media all and (min-width: 480px) and (max-width: 768px) {
-     .mainContainer {
-        flex-direction: column; 
+    .mainContainer {
+        flex-direction: column;
     }
 
     #infoContainter {
@@ -265,8 +270,12 @@ ul {
         height: 33%;
     }
 
-    #controls button,
     #difficulty button {
+        width: 45%;
+        margin: 0 0.25rem;
+    }
+
+    #controls button {
         width: 45%;
         margin: 1rem 0.25rem;
     }
@@ -276,6 +285,7 @@ ul {
     h1 {
         margin-top: 2rem;
     }
+
     .mainContainer {
         flex-direction: column;
         width: 90%;
@@ -334,6 +344,84 @@ ul {
         width: 80%;
         margin: 0.25rem 0.25rem;
     }
+
+    #controls {
+        margin-top: 0.75rem;
+    }
+}
+
+@media all and (max-width: 319px) {
+    h1 {
+        margin-top: 2rem;
+    }
+
+    .mainContainer {
+        flex-direction: column;
+        min-width: 90%;
+    }
+
+    #infoContainter {
+        max-width: 90%;
+        margin: 2rem auto;
+    }
+
+    .subhead {
+        margin: 0.25rem 0;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .rules {
+        font-size: 15px;
+        margin-bottom: 0;
+    }
+
+    ul {
+        padding-left: 1.75rem;
+    }
+
+    #difficulty {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0.156rem;
+        margin: 0;
+    }
+
+    .spacer {
+        margin-bottom: 0.25rem;
+        margin-top: 0;
+    }
+
+    /* #myscore {
+        margin: 0;
+    } */
+
+    .grid {
+        width: 101%;
+        height: 0%;
+        margin: 10rem auto;
+    }
+
+    .square {
+        width: 33%;
+        height: 30vw;
+        /* height: 30vw; */
+    }
+
+    #difficulty button {
+        width: 95%;
+        margin: 0.25rem 0.25rem;
+
+    }
+
+    #controls button {
+        width: 80%;
+        margin: 0.25rem 0.25rem;
+    }
+
     #controls {
         margin-top: 0.75rem;
     }
